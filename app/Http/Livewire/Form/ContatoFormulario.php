@@ -19,7 +19,7 @@ class ContatoFormulario extends Component
 
     protected $rules = [
         'nome' => 'required|max:50',
-        'cpf' => 'required|min:14|max:14',
+        'cpf' => 'required|min:14|max:14|cpf',
         'email' => 'nullable|max:50|email',
         'telefone' => 'nullable|min:14|max:14',
     ];
