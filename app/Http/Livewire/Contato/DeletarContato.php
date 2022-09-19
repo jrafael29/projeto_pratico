@@ -9,6 +9,10 @@ class DeletarContato extends Component
 {
     public Contato $contato;
 
+    protected $listeners = [
+        'atualizarContato' => '$refresh',
+        'atualizarListaDeContatos' => '$refresh'
+    ];
 
     public function render()
     {

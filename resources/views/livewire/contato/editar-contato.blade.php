@@ -11,11 +11,7 @@
                 <div class="modal-body">
                     <livewire:form.contato-formulario
                         :wire:key="$contato->id"
-                        :nome="$contato->nome" 
-                        :cpf="$contato->cpf"
-                        :email="$contato->email"
-                        :telefone="$contato->telefone" 
-                        :principal="$contato->principal"
+                        
                         :editando="true"
                         :contato="$contato"
                     />
@@ -23,9 +19,10 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('contatoAtualizado', (id) => {
+            document.querySelector('#btn-close'+id.detail).click();
+        })
+    </script>
 </div>
-<script>
-    window.addEventListener('contatoAtualizado', (id) => {
-        document.querySelector('#btn-close'+id.detail).click();
-    })
-</script>
+

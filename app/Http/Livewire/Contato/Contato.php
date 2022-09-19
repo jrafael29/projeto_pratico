@@ -10,7 +10,7 @@ class Contato extends Component
     public ModelsContato $contato;
 
     protected $listeners = [
-        'atualizarContato' => '$refresh'
+        'atualizarContato' => '$refresh',
     ];
 
     public function render()

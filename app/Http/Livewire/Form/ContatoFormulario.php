@@ -33,6 +33,18 @@ class ContatoFormulario extends Component
         return view('livewire.form.contato-formulario');
     }
 
+    public function mount()
+    {
+        if($this->editando){
+            $this->nome = $this->contato->nome;
+            $this->cpf = $this->contato->cpf;
+            $this->email = $this->contato->email;
+            $this->telefone = $this->contato->telefone;
+            $this->principal = $this->contato->principal;
+            return;
+        }
+    }
+
     public function updated($campo)
     {
         if($campo == 'telefone'){
@@ -58,9 +70,7 @@ class ContatoFormulario extends Component
                 'principal' => $this->principal
             ]);
             $this->contato->save();
-            $this->emit('atualizarContato');
             $this->dispatchBrowserEvent('contatoAtualizado', $id);
-            
         }else{
             // usando else porque tenho que resetar os campos apos a ação.
             Contato::create([
@@ -71,9 +81,11 @@ class ContatoFormulario extends Component
                 'principal' => $this->principal
             ]);
             
+            $this->reset('nome', 'cpf', 'email', 'telefone', 'principal');
         }
+
+        $this->emit('atualizarContato');
         $this->emit('atualizarListaDeContatos');
         $this->emitSelf('atualizarFormulario');
-        $this->reset('nome', 'cpf', 'email', 'telefone', 'principal');
     }
 }

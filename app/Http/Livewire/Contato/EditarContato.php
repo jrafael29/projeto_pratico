@@ -7,11 +7,17 @@ use Livewire\Component;
 
 class EditarContato extends Component
 {
+
     public Contato $contato;
+
+    protected $listeners = [
+        'atualizarContato' => '$refresh'
+    ];
     
     public function render()
     {
-        return view('livewire.contato.editar-contato');
+        $contato = $this->contato;
+        return view('livewire.contato.editar-contato', compact('contato'));
     }
 
 
