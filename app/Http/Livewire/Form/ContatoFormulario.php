@@ -33,17 +33,17 @@ class ContatoFormulario extends Component
         return view('livewire.form.contato-formulario');
     }
 
-    public function mount()
-    {
-        if($this->editando){
-            $this->nome = $this->contato->nome;
-            $this->cpf = $this->contato->cpf;
-            $this->email = $this->contato->email;
-            $this->telefone = $this->contato->telefone;
-            $this->principal = $this->contato->principal;
-            return;
-        }
-    }
+    // public function mount()
+    // {
+    //     if($this->editando){
+    //         $this->nome = $this->contato->nome;
+    //         $this->cpf = $this->contato->cpf;
+    //         $this->email = $this->contato->email;
+    //         $this->telefone = $this->contato->telefone;
+    //         $this->principal = $this->contato->principal;
+    //         return;
+    //     }
+    // }
 
     public function updated($campo)
     {

@@ -11,7 +11,11 @@
                 <div class="modal-body">
                     <livewire:form.contato-formulario
                         :wire:key="$contato->id"
-                        
+                        :nome="$contato->nome"
+                        :cpf="$contato->cpf"
+                        :email="$contato->email"
+                        :telefone="$contato->telefone"
+                        :principal="$contato->principal"
                         :editando="true"
                         :contato="$contato"
                     />
